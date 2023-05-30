@@ -28,7 +28,7 @@ The Stock Monitoring Platform is a Java application that allows users to monitor
 ## Setup
 
 1. Clone the repository or download the source code files.
-2. Set up a MySQL database and configure the database connection settings in the code (`connection = DriverManager.getConnection("jdbc:mysql://localhost/stock_monitoring", "username", "password")`).
+2. Set up a MySQL database and configure the database connection settings in the code (`connection = DriverManager.getConnection("jdbc:derby://localhost:1527/database", "username", "password")`).
 3. Replace `YOUR_API_KEY` in the code with your actual Alpha Vantage API key.
 4. Compile the Java files.
 5. Run the application.
