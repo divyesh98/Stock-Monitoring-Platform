@@ -1,0 +1,36 @@
+drop table watchlist_symbols;
+drop table user_watchlists;
+drop table user_stocks;
+drop table users;
+
+CREATE TABLE users (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  username VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE user_stocks (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  username VARCHAR(255) NOT NULL,
+  symbol VARCHAR(10) NOT NULL,
+  FOREIGN KEY (username) REFERENCES users(username)
+);
+
+CREATE TABLE user_watchlists (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  username VARCHAR(255) NOT NULL,
+  watchlist_name VARCHAR(255) NOT NULL,
+  FOREIGN KEY (username) REFERENCES users(username)
+);
+
+CREATE TABLE watchlist_symbols (
+  id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  username VARCHAR(255) NOT NULL,
+  watchlist_name VARCHAR(255) NOT NULL,
+  symbol VARCHAR(10) NOT NULL,
+  FOREIGN KEY (username) REFERENCES users(username)
+--   FOREIGN KEY (watchlist_name) REFERENCES user_watchlists(watchlist_name)
+);
+
+
+
